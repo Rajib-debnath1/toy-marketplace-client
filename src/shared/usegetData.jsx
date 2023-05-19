@@ -8,7 +8,12 @@ const useGetToyData = url =>{
             .then(res => res.json())
             .then(data => setToy(data))
     },[url])
-    return toy
+    if(toy.length>1){
+        return toy
+    }
+    else{
+        return [{}]
+    }
 }
 
 export default useGetToyData
