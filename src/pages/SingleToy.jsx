@@ -1,4 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 
 const SingleToy = ({ sport }) => {
@@ -10,7 +14,7 @@ const SingleToy = ({ sport }) => {
         // navigate()
     }
     return (
-        <div className="bg-slate-200 shadow-xl rounded-lg flex flex-col" key={sport?._id}>
+        <div data-aos="fade-up" className="bg-slate-200 shadow-xl rounded-lg flex flex-col" key={sport?._id}>
             <img src={img} className="h-[200px] w-[90%] mx-auto rounded" alt="image" />
             <aside className="p-3 ">
                 <h3 className="font-bold text-2xl text-center font-serif">{name}</h3>

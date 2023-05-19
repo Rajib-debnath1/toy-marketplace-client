@@ -23,11 +23,11 @@ const Navbar = () => {
                             <li><Link to="/register"> Register</Link></li>
                             <li><Link to="/Login"> Login </Link></li>
                             {user &&
-                            <>
+                            <div className="pl-3">
                             <li><Link to="/allToy"> All Toys</Link></li>
                             <h2><Link to="/AddToys"> Add Toys</Link></h2>
                             <h2><Link to="/mytoy"> My Toy</Link></h2>
-                            </>
+                            </div>
                             }
                             <li><Link to="/blogs"> Blogs</Link></li>
                             

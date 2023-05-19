@@ -4,6 +4,10 @@ import { mainApi } from '../../shared/mainApi';
 
 import Loader from '../../shared/Loader';
 import AdminSingleToy from './AdminSigleToy';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const AllToys = () => {
     const { data: toysData } = useGetToyData(`${mainApi}/alltoy`)
