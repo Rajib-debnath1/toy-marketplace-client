@@ -15,11 +15,11 @@ const Toys = () => {
     //         .then(data => setToy(data))
     // }, [])
 
-    const SportCarData = useGetToyData(`http://localhost:5000/toy/sportCar`)
+    const {data:SportCarData} = useGetToyData(`http://localhost:5000/toy/sportCar`)
 
-    const MiniFireCarData = useGetToyData(`http://localhost:5000/toy/miniFire`)
+    const {data:MiniFireCarData} = useGetToyData(`http://localhost:5000/toy/miniFire`)
 
-    const PoliceCarData = useGetToyData(`http://localhost:5000/toy/policeCar`)
+    const {data:PoliceCarData} = useGetToyData(`http://localhost:5000/toy/policeCar`)
  
     
 

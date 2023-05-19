@@ -20,11 +20,11 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to="/"> Home</Link></li>
-                            <li><Link to="/allToy"> All Toys</Link></li>
                             <li><Link to="/register"> Register</Link></li>
                             <li><Link to="/Login"> Login </Link></li>
                             {user &&
                             <>
+                            <li><Link to="/allToy"> All Toys</Link></li>
                             <h2><Link to="/AddToys"> Add Toys</Link></h2>
                             <h2><Link to="/mytoy"> My Toy</Link></h2>
                             </>
@@ -43,11 +43,11 @@ const Navbar = () => {
                     {/* for large device */}
                 <div  className="hidden lg:flex gap-5 mx-auto justify-between md:hidden sm:hidden  font-[500]">
                             <h2><Link to="/"> Home</Link></h2>
-                            <h2><Link to="/allToy"> All Toys</Link></h2>
                             <h2><Link to="/register"> Register</Link></h2>
                             <h2><Link to="/Login"> Login </Link></h2>
-                            {user &&
+                            {user?.email &&
                             <>
+                            <h2><Link to="/allToy"> All Toys</Link></h2>
                             <h2><Link to="/AddToys"> Add Toys</Link></h2>
                             <h2><Link to="/mytoy"> My Toy</Link></h2>
                             </>
@@ -60,7 +60,7 @@ const Navbar = () => {
 
                         <div className="indicator">
 
-                            { user&&
+                            { user?.email&&
                             <div className="tooltip" data-tip={user?.email}>
                                 <img  src={user.photoURL} className="rounded-[100%] h-[30px] w-[30px] "/>
                             </div>

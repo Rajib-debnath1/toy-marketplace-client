@@ -20,6 +20,8 @@ const SingleToy = ({ sport }) => {
 
                     <h5 className="">Quantity: {quantity} pcs</h5>
                 </div>
+                    <h5 className="ml-2">Seller: {seller}</h5>
+                    <h5 className="ml-2">Sub Category: {category}</h5>
                 <button
                     onClick={() => handleDataNavigate(sport)}
 

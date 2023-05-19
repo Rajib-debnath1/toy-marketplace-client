@@ -1,13 +1,15 @@
 
 import { Link } from 'react-router-dom';
 // import img from '../../assets/images/login/login.svg';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../firebase/AuthProvider';
 
 
 const Login = () => {
 
     const {signIn} = useContext(AuthContext);
+    const [error,setError] = useState("")
+
 
     const handleLogin = event => {
         event.preventDefault();
@@ -21,7 +23,10 @@ const Login = () => {
             const user = result.user;
             console.log(user)
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            setError(error)
+            console.log(error,"from login page");
+        });
     }
 
     return (
@@ -52,6 +57,11 @@ const Login = () => {
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
+                                {error&&
+                            <h3 className='text-red-6000 text-sm font-mono'>{error}</h3>
+
+
+                            }
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
