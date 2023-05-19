@@ -11,7 +11,7 @@ const auth = getAuth(app)
 const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const createUser = (email, password) =>{
+    const createAUser = (email, password) =>{
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
@@ -48,7 +48,7 @@ const signIn = (email, password) =>{
     const authInfo = {
         user,
         loading,
-        createUser,
+        createAUser,
         signIn,
         logout,
         googleSign

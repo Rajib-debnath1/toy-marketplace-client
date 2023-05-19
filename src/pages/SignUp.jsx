@@ -1,14 +1,18 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../firebase/AuthProvider';
 import { toast } from 'react-toastify';
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../firebase/firebase.config';
 // import img from '../../assets/images/login/login.svg';
 
 
 const SignUp = () => {
+    const auth = getAuth(app)
+    const [error,setError] = useState("")
 
-    const {googleSign} = useContext(AuthContext);
+    const {googleSign,createAUser} = useContext(AuthContext);
 
     const handleSignUp = event =>{
         event.preventDefault();
@@ -16,21 +20,34 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const Photo = form.img.value;
         console.log(name, email, password)
 
-        // createUser(email, password)
-        // .then(result =>{
-        //     const user = result.user;
-        //     console.log(user)
-        // })
-        // .catch(error => console.log(error))
+        createAUser(email, password)
+        .then(result =>{
+            updateProfile(auth.currentUser, {
+                displayName: name,
+                photoURL:Photo
+              })
+              .then(()=>{
+                toast.success("Sign Up")
+                console.log(result);
+              })
+        })
+        .catch(error => {
+            setError(error)
+            console.log(error);
+        })
     }
     const handleGoogle =()=>{
         googleSign().then(result=>{
             const user = result.user;
             console.log(user);
             toast.success('successfully login')
-        }).caches(er=>console.log(er))
+        }).caches(er=>{
+            setError(er)
+            console.log(er);
+        })
     }
 
     return (
@@ -54,18 +71,30 @@ const SignUp = () => {
                         <div className="form-control">
 
                             <label className="label">
+                                <span className="label-text">Photo</span>
+                            </label>
+                            <input type="text" placeholder="paste your photo" name="img" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+
+                            <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="text" placeholder="email" name="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Confirm Password</span>
+                                <span className="label-text">Password</span>
                             </label>
                             <input type="text" placeholder="password" name="password" className="input input-bordered" />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
+                            {error&&
+                            <h3 className='text-red-6000 text-sm font-mono'>{error}</h3>
+
+
+                            }
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Sign Up" />

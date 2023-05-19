@@ -1,2 +1,2 @@
 
-export const mainApi ='http://localhost:5000'
+export const mainApi ='https://funny-toy.vercel.app'
