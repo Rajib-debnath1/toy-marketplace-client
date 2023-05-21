@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { mainApi } from "../shared/mainApi";
+
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useGetToyData from "../shared/usegetData";
 import SingleToy from "./SingleToy";
 import Loader from "../shared/Loader";
+import { mainApi } from '../shared/mainApi';
 
 
 const Toys = () => {
@@ -15,16 +15,17 @@ const Toys = () => {
     //         .then(data => setToy(data))
     // }, [])
 
-    const {data:SportCarData} = useGetToyData(`http://localhost:5000/toy/sportCar`)
+    const {data:SportCarData} = useGetToyData(`${mainApi}/toy/sportCar`)
 
-    const {data:MiniFireCarData} = useGetToyData(`http://localhost:5000/toy/miniFire`)
+    const {data:MiniFireCarData} = useGetToyData(`${mainApi}/toy/miniFire`)
 
-    const {data:PoliceCarData} = useGetToyData(`http://localhost:5000/toy/policeCar`)
+    const {data:PoliceCarData} = useGetToyData(`${mainApi}/toy/policeCar`)
  
     
 
     return (
-        <div>
+        <div className="my-7 ">
+            <h2 className="text-2xl font-serif font-bold text-center ">Our Best Toys </h2>
             <Tabs>
                 <TabList>
                     <Tab>Sport Car</Tab>
@@ -33,6 +34,7 @@ const Toys = () => {
                 </TabList>
 
                 <TabPanel>
+                    
                 {SportCarData?.length<1&&<Loader></Loader>}
                     <section className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         {

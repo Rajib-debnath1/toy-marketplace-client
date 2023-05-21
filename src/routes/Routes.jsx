@@ -10,6 +10,7 @@ import ToyDetails from "../pages/admin/ToyDetails";
 import AllToys from "../pages/admin/AllToys";
 import MyToys from "../pages/admin/MyToys";
 import PrivetRoute from "./PrivetRoute";
+import { mainApi } from "../shared/mainApi";
 
 const router = createBrowserRouter([
 
@@ -23,41 +24,42 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element:<Home/>
+                element: <Home />
             },
-            
+
             {
                 path: "/register",
-                element:<SignUp/>
+                element: <SignUp />
             },
             {
                 path: "/login",
-                element:<Login/>
+                element: <Login />
             },
             {
                 path: "/AddToys",
-                element:<AddToy/>
+                element: <PrivetRoute><AddToy /></PrivetRoute>
             },
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
             },
             {
-                path: '/detailToy',
-                element: <PrivetRoute><ToyDetails/></PrivetRoute>
+                path: '/detailToy/:id',
+                element: <PrivetRoute><ToyDetails /></PrivetRoute>,
+                loader: ({ params }) =>fetch(`${mainApi}/toyDetails/${params.id}`)
             },
             {
                 path: '/allToy',
-                element: <AllToys/>
+                element: <PrivetRoute><AllToys /></PrivetRoute>
             },
             {
                 path: '/mytoy',
-                element: <MyToys/>
+                element: <PrivetRoute><MyToys /></PrivetRoute>
             }
-           
-            
+
+
         ]
-        
+
 
     }
 ])

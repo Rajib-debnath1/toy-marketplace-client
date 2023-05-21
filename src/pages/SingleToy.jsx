@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
@@ -6,7 +6,7 @@ AOS.init();
 
 
 const SingleToy = ({ sport }) => {
-    const { category, details, img, name, price, quantity, rating, seller, sellerImg } = sport
+    const { category, details, img, name, price, quantity, rating, seller, sellerImg ,_id} = sport
     const navigate = useNavigate()
     const handleDataNavigate = data =>{
         console.log(data);
@@ -26,10 +26,11 @@ const SingleToy = ({ sport }) => {
                 </div>
                     <h5 className="ml-2">Seller: {seller}</h5>
                     <h5 className="ml-2">Sub Category: {category}</h5>
-                <button
-                    onClick={() => handleDataNavigate(sport)}
+                <Link
+                    // onClick={() => handleDataNavigate(sport)}
+                    to={`/detailToy/${_id}`}
 
-                    className="bg-blue-700 p-3 text-white font-bold rounded-md text-center ">See Details</button>
+                    className="bg-blue-700 p-3 text-white font-bold rounded-md text-center ">See Details</Link>
             </aside>
         </div>
     );

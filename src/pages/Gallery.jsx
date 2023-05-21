@@ -3,9 +3,9 @@ import { mainApi } from '../shared/mainApi';
 
 const Gallery = () => {
     const {data} = useGetToyData(`${mainApi}/allToy`)
-    console.log(data);
+    // console.log(data);
     return (
-      <div>
+      <div className='my-3 bg-slate-200'>
         <h1 className="text-2xl font-bold my-5 text-center">Our Collections Gallery</h1>
           <div className="grid  md:grid-cols-3 gap-4">
             <img src="https://img.freepik.com/free-photo/fun-gorilla-3d-illustration_183364-81053.jpg?size=626&ext=jpg&ga=GA1.1.1371786472.1680197785&semt=ais" alt="" />
