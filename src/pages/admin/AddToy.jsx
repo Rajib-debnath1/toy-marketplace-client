@@ -39,6 +39,7 @@ const AddToy = () => {
                 console.log(data);
                 if(data){
                     toast.success(`Added ${name}`)
+                    form.reset()
                 }
             })
 

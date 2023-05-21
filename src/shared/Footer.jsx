@@ -34,7 +34,7 @@ const Footer = () => {
                    <p>Mirpur-10</p>
                    <p className="text-center text-md font-semibold font-mono "> &copy; Copiright &#169; by rajibdevnath@gmail.com</p>
                    <div>
-      <FontAwesomeIcon className="mr-3" icon={faFacebook} />
+     <a href="https://www.facebook.com/razib.debnath.127" target="_blanks" > <FontAwesomeIcon className="mr-3" icon={faFacebook} /></a>
       <FontAwesomeIcon className="mr-3" icon={faTwitter} />
       <FontAwesomeIcon icon={faInstagram} />
     </div>

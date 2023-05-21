@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../firebase/AuthProvider';
 import useTitleRoutes from '../shared/hooks/useTittle';
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
@@ -25,17 +26,23 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+       if(password?.length<6){
+        toast.error("Please type 6 password")
+       }
+       else{
         signIn(email,password)
         .then(result => {
             const user = result.user;
             console.log(user)
             form.reset();
             navigate(from, {replace :true})
-        })
-        .catch(error => {
+            setError("")
+        }).catch(error => {
             setError(error)
-            console.log(error,"from login page");
+            console.log(error?.message,"from login page");
         });
+        setError("")
+       }
     }
 
     return (
@@ -56,7 +63,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" name="email" className="input input-bordered" />
+                                <input type="email" placeholder="email" name="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -67,7 +74,7 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                                 {error&&
-                            <h3 className='text-red-6000 text-sm font-mono'>{error}</h3>
+                            <h3 className='text-red-600 text-sm font-mono'>{error}</h3>
 
 
                             }
@@ -76,7 +83,7 @@ const Login = () => {
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='my-4 text-center'>New to Funny Toys?<Link className='text-orange-600 font-bold' to="/signup"> Sign Up</Link></p>
+                        <p className='my-4 text-center'>New to Funny Toys?<Link className='text-orange-600 font-bold' to="/register"> Sign Up</Link></p>
                     </div>
                 </div>
             </div>

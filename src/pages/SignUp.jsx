@@ -27,6 +27,7 @@ const SignUp = () => {
         console.log(name, email, password)
         if(password?.length<6){
             toast.error("Please 6 character password")
+            setError("Please 6 character password")
         }else{
             createAUser(email, password)
         .then(result =>{
@@ -41,7 +42,7 @@ const SignUp = () => {
               })
         })
         .catch(error => {
-            setError(error)
+            setError(error?.message)
             console.log(error);
         })
 
@@ -97,14 +98,14 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" name="password" className="input input-bordered" />
+                            <input type="text" onChange={(event)=> (event.target.value).length < 6 ? setError("Please enter 6 digit password"):setError("")
+
+                            } placeholder="password" name="password" className="input input-bordered" />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                             {error&&
-                            <h3 className='text-red-6000 text-sm font-mono'>{error}</h3>
-
-
+                            <h3 className='text-red-600 text-sm font-mono'>{error}</h3>
                             }
                         </div>
                         <div className="form-control mt-6">
