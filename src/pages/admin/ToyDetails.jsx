@@ -18,7 +18,7 @@ const ToyDetails = () => {
 
                     <h5 className="">Quantity: {quantity} pcs</h5>
                 </div>
-                <p className="tgext-sm  text-blue-700 ">{details} . {details}</p>
+                <p className="text-sm  text-blue-700 ">{details}</p>
                 </aside>
 
 
