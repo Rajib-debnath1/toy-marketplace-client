@@ -6,8 +6,8 @@ const Gallery = () => {
     console.log(data);
     return (
       <div>
-        <h1 className="text-2xl font-bold my-4 text-center">Our Collections Gallery</h1>
-          <div className="grid grid-cols-3 gap-4">
+        <h1 className="text-2xl font-bold my-5 text-center">Our Collections Gallery</h1>
+          <div className="grid  md:grid-cols-3 gap-4">
             <img src="https://img.freepik.com/free-photo/fun-gorilla-3d-illustration_183364-81053.jpg?size=626&ext=jpg&ga=GA1.1.1371786472.1680197785&semt=ais" alt="" />
             <img src="https://img.freepik.com/free-vector/flat-design-christmas-toys-background_52683-52644.jpg?size=626&ext=jpg&ga=GA1.1.1371786472.1680197785&semt=ais" alt="" />
             <img src="https://img.freepik.com/free-vector/boy-riding-bumper-car-cartoon_1308-111020.jpg?size=626&ext=jpg&ga=GA1.2.1371786472.1680197785&semt=ais" alt="" />
