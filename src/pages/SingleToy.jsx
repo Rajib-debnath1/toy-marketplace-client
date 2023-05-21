@@ -24,13 +24,15 @@ const SingleToy = ({ sport }) => {
 
                     <h5 className="">Quantity: {quantity} pcs</h5>
                 </div>
-                    <h5 className="ml-2">Seller: {seller}</h5>
-                    <h5 className="ml-2">Sub Category: {category}</h5>
+                   <div className="my-3">
+                   <h5 className="text-sm font-mono">Seller: {seller}</h5>
+                    <h5 className="text-sm font-mono">Sub Category: {category}</h5>
+                   </div>
                 <Link
                     // onClick={() => handleDataNavigate(sport)}
                     to={`/detailToy/${_id}`}
 
-                    className="bg-blue-700 p-3 text-white font-bold rounded-md text-center ">See Details</Link>
+                    className="bg-blue-700  px-3 py-2 text-white font-bold rounded-md text-center ">See Details</Link>
             </aside>
         </div>
     );

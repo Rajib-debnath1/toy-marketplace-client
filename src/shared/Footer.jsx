@@ -29,8 +29,10 @@ const Footer = () => {
                 </div>
                 <div>
                 <span className="footer-title">Our Location</span>
+
                    <p>Dhaka Bangladesh</p>
                    <p>Mirpur-10</p>
+                   <p className="text-center text-md font-semibold font-mono "> &copy; Copiright &#169; by rajibdevnath@gmail.com</p>
                    <div>
       <FontAwesomeIcon className="mr-3" icon={faFacebook} />
       <FontAwesomeIcon className="mr-3" icon={faTwitter} />
