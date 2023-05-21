@@ -26,7 +26,7 @@ const [user, setUser] = useState(null);
         return () =>{
             return unsubscribe();
         }
-    },[])
+    },[auth])
 
 
     
@@ -39,10 +39,10 @@ const signIn = (email, password) =>{
         setLoading(false);
         return signOut(auth);
       };
-      const provider = new GoogleAuthProvider()
+      const providers = new GoogleAuthProvider()
 
       const googleSign = () => {
-        return signInWithPopup(auth, provider);
+        return signInWithPopup(auth, providers);
       };
 
     const authInfo = {

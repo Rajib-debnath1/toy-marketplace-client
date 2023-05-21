@@ -1,9 +1,13 @@
 import { useLocation } from "react-router-dom";
 
 const ToyDetails = () => {
-    const {state} = useLocation()
+    const data = useLocation()
+    const state = data?.state;
+    console.log(state);
+    console.log(data);
+
     // console.log(state,"from details");
-    const { category, details, img, name, price, quantity, rating, seller, sellerImg } = state
+    const {  details, img, name, price, quantity, rating } = state
     return (
         <div className="w-[90%] block lg:flex justify-between mx-auto shadow-xl">
             <section>

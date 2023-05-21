@@ -1,6 +1,6 @@
 
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../firebase/AuthProvider';
 import { toast } from 'react-toastify';
 import { getAuth, updateProfile } from 'firebase/auth';
@@ -11,6 +11,7 @@ import app from '../firebase/firebase.config';
 const SignUp = () => {
     const auth = getAuth(app)
     const [error,setError] = useState("")
+    const navigate=  useNavigate()
 
     const {googleSign,createAUser} = useContext(AuthContext);
 
@@ -22,8 +23,10 @@ const SignUp = () => {
         const password = form.password.value;
         const Photo = form.img.value;
         console.log(name, email, password)
-
-        createAUser(email, password)
+        if(password?.length<6){
+            toast.error("Please 6 character password")
+        }else{
+            createAUser(email, password)
         .then(result =>{
             updateProfile(auth.currentUser, {
                 displayName: name,
@@ -31,6 +34,7 @@ const SignUp = () => {
               })
               .then(()=>{
                 toast.success("Sign Up")
+                navigate('/')
                 console.log(result);
               })
         })
@@ -38,16 +42,21 @@ const SignUp = () => {
             setError(error)
             console.log(error);
         })
+
+        }
+
+        
     }
     const handleGoogle =()=>{
         googleSign().then(result=>{
             const user = result.user;
             console.log(user);
-            toast.success('successfully login')
+             toast.success('successfully login')
         }).caches(er=>{
             setError(er)
             console.log(er);
         })
+        console.log(googleSign,"and","click hoiche");
     }
 
     return (
@@ -100,11 +109,11 @@ const SignUp = () => {
                             <input className="btn btn-primary" type="submit" value="Sign Up" />
                         </div>
                     </form>
-                    <section
+                    <button
                     onClick={handleGoogle}
                      className='h-[50px] bg-blue-400 p-3 text-center text-white font-semibold'> 
                         <h4>Google Sign In</h4>
-                    </section>
+                    </button>
                     <p className='my-4 text-center'>Already Have an Account?<Link className='text-orange-600 font-bold' to="/login"> Login</Link></p>
                 </div>
             </div>
