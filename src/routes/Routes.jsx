@@ -11,6 +11,7 @@ import AllToys from "../pages/admin/AllToys";
 import MyToys from "../pages/admin/MyToys";
 import PrivetRoute from "./PrivetRoute";
 import { mainApi } from "../shared/mainApi";
+import Gallery from "../pages/Gallery";
 
 const router = createBrowserRouter([
 
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/gallery',
+                element: <Gallery/>
             },
             {
                 path: '/detailToy/:id',

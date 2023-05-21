@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ExtraHero = () => {
     return (
@@ -9,7 +10,7 @@ const ExtraHero = () => {
                     <div>
                         <h1 className="text-5xl font-bold">Best Funny Toys </h1>
                         <p className="py-6">We are providing the funny toys and baby toys . You can choice a best toys for your cute baby . Just explore our toys gallery</p>
-                        <button className="btn btn-primary">Explore</button>
+                        <Link to="/gallery" className="btn btn-primary">Explore</Link>
                     </div>
                     <img src="https://img.freepik.com/free-photo/kid-playing-home_23-2148131061.jpg?w=826&t=st=1684687870~exp=1684688470~hmac=4fe663a086fc2b93c2a9dde14438bb1c00b73777152b1086f2eff6c16f6ec129" className=" rounded-lg shadow-2xl" />
                 </div>
