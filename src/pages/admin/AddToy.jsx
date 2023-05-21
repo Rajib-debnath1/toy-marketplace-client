@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../firebase/AuthProvider";
 import { mainApi } from "../../shared/mainApi";
 import { toast } from "react-toastify";
+import useTitleRoutes from "../../shared/hooks/useTittle";
 
 
 const AddToy = () => {
+    useTitleRoutes("AddToys")
     const { user } = useContext(AuthContext)
     // console.log(user, "addToy");
     // The toy is very joyfull for kids and baby .

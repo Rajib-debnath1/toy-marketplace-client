@@ -5,10 +5,12 @@ import { AuthContext } from '../firebase/AuthProvider';
 import { toast } from 'react-toastify';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../firebase/firebase.config';
+import useTitleRoutes from '../shared/hooks/useTittle';
 // import img from '../../assets/images/login/login.svg';
 
 
 const SignUp = () => {
+    useTitleRoutes("Register")
     const auth = getAuth(app)
     const [error,setError] = useState("")
     const navigate=  useNavigate()

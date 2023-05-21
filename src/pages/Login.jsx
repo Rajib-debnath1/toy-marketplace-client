@@ -3,9 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import img from '../../assets/images/login/login.svg';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../firebase/AuthProvider';
+import useTitleRoutes from '../shared/hooks/useTittle';
 
 
 const Login = () => {
+    useTitleRoutes("Register")
 
     const navigate = useNavigate();
     const location = useLocation();

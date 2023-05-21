@@ -2,7 +2,7 @@ import { useEffect } from "react"
 
 const  useTitleRoutes =title =>{
     useEffect(()=>{
-        document.title = title
+        document.title = `FunnyToy/${title}`
     },[title])
 }
 export default useTitleRoutes

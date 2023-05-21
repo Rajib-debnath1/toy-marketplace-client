@@ -1,5 +1,7 @@
+import useTitleRoutes from "../shared/hooks/useTittle";
 
 const Blogs = () => {
+    useTitleRoutes("Blogs")
     return (
         <div className="m-5">
             <h2 className="text-center text-3xl mb-4">Some important Q and A</h2>

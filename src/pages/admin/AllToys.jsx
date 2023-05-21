@@ -4,9 +4,11 @@ import { mainApi } from '../../shared/mainApi';
 
 import Loader from '../../shared/Loader';
 import AdminSingleToy from './AdminSigleToy';
+import useTitleRoutes from '../../shared/hooks/useTittle';
 
 
 const AllToys = () => {
+    useTitleRoutes("AllToys")
     const { data: toysData } = useGetToyData(`${mainApi}/alltoy`)
 
     const [search ,setSearch] = useState("")

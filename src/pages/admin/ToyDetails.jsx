@@ -1,17 +1,24 @@
-import { useLoaderData, useLocation } from "react-router-dom";
+import { useLoaderData} from "react-router-dom";
+import useTitleRoutes from "../../shared/hooks/useTittle";
 
 const ToyDetails = () => {
     // const data = useLocation()
+
     // const state = data?.state;
 
+    useTitleRoutes("Details")
+    
     const data = useLoaderData()
     console.log(data,"get data details");
-
+    
     // console.log(state);
-    // console.log(data);
 
+
+    // console.log(data);
+    
     // console.log(state,"from details");
     const {  details, img, name, price, quantity, rating } = data
+
     return (
         <div className="w-[90%] block lg:flex justify-between mx-auto shadow-xl">
             <section>
