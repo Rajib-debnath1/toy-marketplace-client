@@ -101,7 +101,7 @@ const SignUp = () => {
                         </div>
                     </form>
                     <section
-                    onClick={()=>handleGoogle()}
+                    onClick={handleGoogle}
                      className='h-[50px] bg-blue-400 p-3 text-center text-white font-semibold'> 
                         <h4>Google Sign In</h4>
                     </section>

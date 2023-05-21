@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext)
+    const {user,logout} = useContext(AuthContext)
 
     return (
         <div>
@@ -27,6 +27,7 @@ const Navbar = () => {
                             <li><Link to="/allToy"> All Toys</Link></li>
                             <h2><Link to="/AddToys"> Add Toys</Link></h2>
                             <h2><Link to="/mytoy"> My Toy</Link></h2>
+                            <h2 onClick={()=>logout()} className="text-red-500 font-extrabold my-2 hover:bg-red-400 hover:text-white hover:pl-2 rounded-md">LogOut</h2>
                             </div>
                             }
                             <li><Link to="/blogs"> Blogs</Link></li>
@@ -50,6 +51,7 @@ const Navbar = () => {
                             <h2><Link to="/allToy"> All Toys</Link></h2>
                             <h2><Link to="/AddToys"> Add Toys</Link></h2>
                             <h2><Link to="/mytoy"> My Toy</Link></h2>
+                            <h2 onClick={()=>logout()} className="text-red-500 font-extrabold ">LogOut</h2>
                             </>
                             }
                             <h2><Link to="/blogs"> Blogs</Link></h2>
