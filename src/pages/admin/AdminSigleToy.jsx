@@ -57,12 +57,10 @@ const AdminSingleToy = ({ sport,refetch }) => {
                     {/* Put this part before </body> tag */}
 
                     {user?.email === seller&&
-                    <label htmlFor={_id} className="bg- p-3 text-white font-bold rounded-md text-center">Update</label>}
+                    <label htmlFor={_id} className="bg-blue-400 p-3 text-white font-bold rounded-md text-center">Update</label>}
                 <ModalUpdate sport={sport} key={_id} refetch={refetch}></ModalUpdate>
 
        
-
-
 
 {/* delte toy */}
                     {
